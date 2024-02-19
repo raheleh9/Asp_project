@@ -1,0 +1,36 @@
+﻿@using Asp_project.Models;
+@model List<Teacher>
+
+<a href="/Teacher/Creat"  class="btn btn-success mb-3"> ثبت اطلاعات</a>
+
+    <div class="table-response">
+    <table class="table table-striped">
+        <tr>
+            <th> ایدی استاد</th>
+            <th>نام استاد </th>
+            <th> نام خانوادگی استاد</th>
+            <th>کد ملی</th>
+            <th>شماره تماس</th>
+            <th>حوزه ی تدریس</th>
+         </tr>
+        @foreach( var item in Model)
+        {
+            <tr>
+               <td>@item.Id</td> 
+               <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.NationalCode</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.TeachingArea</td>
+                <td> 
+                    <a href="/Teacher/Edit/@item.Id" class="btn btn-warning"> ویرایش</a>
+                    <a href="/Teacher/Delete/@item.Id" class="btn btn-danger"> حذف </a>
+
+                </td>
+            
+            </tr>
+        }
+
+        </table>
+
+    </div>
